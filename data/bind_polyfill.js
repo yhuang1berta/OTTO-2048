@@ -5,9 +5,25 @@ var getRandomItem = (array = [])=>{
   return result;
 }
 var playAudio = (audioFile="",v=0.4)=>{
-  var audio = new Audio(audioFile);
-  audio.volume = v;//音量
-  if(audio) audio.play();
+var audio = new Audio(audioFile);
+audio.volume = v;//音量
+var audioStarter = document.createElement('div');
+audioStarter.style.position = 'fixed';
+audioStarter.style.top = '0';
+audioStarter.style.left = '0';
+audioStarter.style.width = '5px';
+audioStarter.style.height = '5px';
+audioStarter.style.zIndex = '9999';
+audioStarter.style.opacity = '0';
+
+audioStarter.addEventListener('click', function() {
+  if(audio) {
+    audio.play();
+    document.body.removeChild(audioStarter);
+  }
+});
+  // if(audio) audio.play();
+audioStarter.click();
 }
 // luigi-修改点-2-over
 
