@@ -19,9 +19,13 @@ audioStarter.style.opacity = '0';
 audioStarter.addEventListener('click', function() {
   if(audio) {
     audio.play();
-    document.body.removeChild(audioStarter);
+    if (document.contains(audioStarter)) {
+      console.log('remove audioStarter'); 
+      document.body.removeChild(audioStarter);
+    }
   }
 });
+document.body.appendChild(audioStarter);
   // if(audio) audio.play();
 audioStarter.click();
 }
