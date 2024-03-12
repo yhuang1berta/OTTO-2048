@@ -28,6 +28,35 @@
     return([this.pos[0] + direction[0], this.pos[1] + direction[1]]);
   };
 
+  var srcs = [
+    './audio/success/1.wav',
+    './audio/success/2.wav',
+    './audio/success/3.wav',
+    './audio/success/4.wav',
+    './audio/success/5.wav',
+    './audio/success/6.wav',
+    './audio/success/7.wav',
+    './audio/success/8.wav',
+    './audio/success/9.wav',
+    './audio/success/10.wav',
+    './audio/success/11.wav',
+    './audio/success/12.wav',
+    './audio/success/13.wav',
+    './audio/success/14.wav',
+    './audio/success/15.wav',
+    './audio/success/16.wav',
+    './audio/success/17.wav',
+    './audio/success/18.wav',
+    './audio/success/19.wav',
+    './audio/success/20.wav',
+    './audio/success/21.wav',
+    './audio/success/22.wav',
+    './audio/success/23.wav',
+    './audio/success/24.wav',
+    './audio/success/25.wav',
+    './audio/success/26.wav',
+  ]
+
   Tile.prototype.move = function(direction){
     var newPos = this.addDirection(direction);
     while (this.board.isOnBoard(newPos)){
@@ -44,6 +73,8 @@
       }
       newPos = [newPos[0] + direction[0], newPos[1] + direction[1]];
     }
+    playAudio(srcs[Math.floor(Math.random() * srcs.length)]);
+
     this.new = false;
     this.resetKlass();
     this.board.addTile(this.pos, this);
